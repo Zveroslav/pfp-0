@@ -1,0 +1,3 @@
+function sendQueryToCoinyPay(id) {
+
+}

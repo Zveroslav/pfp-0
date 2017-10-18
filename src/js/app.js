@@ -1,26 +1,35 @@
 import "../css/main.less";
-
-class HelloWorldApp extends React.Component {
+import React from 'react';
+import {render} from 'react-dom';
+import Order from "../Components/Order/";
+class CoinyPay extends React.Component {
     constructor (props) {
         super(props);
-
-        Poster.on('afterOrderClose', () => {
+        this.state = {
+          name: '',
+          modalData: ''
+        };
+        Poster.on('applicationIconClicked', (data) => {
+            this.setState({modalData:data})
             Poster.interface.popup({
-                width: 600,
-                height: 400,
-                title: "Hello world application"
+                width: 490,
+                height: 600,
+                title: "CoinyPay"
             });
         });
+        Poster.interface.showApplicationIconAt({order: 'Оплатить через CoinyPay', functions: 'Статус заказов CoinyPay'});
     }
-
-	render () {
+	  render () {
         return(
-            <h1>Hello world!</h1>
+            <div id="CoinyPay">
+              <img width="450px" src='https://static.tildacdn.com/tild6461-3431-4262-b134-656264333332/1_big.png' />
+              <Order modalData={this.state.modalData} />
+            </div>
         );
-	}
+	  }
 }
 
-ReactDOM.render(
-    <HelloWorldApp/>,
+render(
+    <CoinyPay/>,
     document.getElementById('app-container')
 );

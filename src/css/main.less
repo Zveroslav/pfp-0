@@ -1,8 +1,67 @@
 body {
 	color: #222;
+	padding: 0;
 
-	h1 {
+
+	h1, {
 		font-size: 30px;
 		font-weight: bold;
+	}
+
+	#CoinyPay {
+		body {
+			padding: 0;
+		}
+
+		#header {
+			padding: 20px 0 ;
+		}
+
+		#body {
+			padding: 20px;
+			padding-top: 0;
+			font-weight: 400;
+			font-size: 13px;
+
+			h3 {
+				font-weight: bold;
+				font-style: 15px;
+				margin-bottom: 15px
+			}
+		}
+
+		div {
+			margin: 0 auto;
+			margin-bottom: 10px;
+			display: block;
+			text-align: center;
+		}
+		h2 {
+			font-size: 15px;
+			font-weight: bold;
+		}
+		input {
+			text-align: center;
+			box-shadow: none;
+			border-bottom: 2px solid #3f3f3f;
+			&:focus {
+					box-shadow: none;
+					transition: 0.5s;
+					border-bottom: 2px solid #f09741;
+			}
+		}
+		button {
+			margin: 15px;
+			height: 60px;
+			font-size: 20px;
+		}
+		p {
+			text-align: left;
+		}
+
+	}
+
+	#app-container {
+		text-align: center;
 	}
 }
