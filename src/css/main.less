@@ -13,8 +13,8 @@ body {
 			padding: 0;
 		}
 
-		#header {
-			padding: 20px 0 ;
+		#info {
+			padding: 0px 20px ;
 		}
 
 		#body {
@@ -28,6 +28,22 @@ body {
 				font-style: 15px;
 				margin-bottom: 15px
 			}
+			table {
+				margin: 0 auto;
+				width: 95%;
+				tr {
+					border-bottom: 1px solid #f3f3f3
+				}
+				th, td {
+					vertical-align: middle;
+					padding: 3px 7px;
+				}
+				th {
+					color: #aea37c;
+					font-weight: bold;
+					text-transform: uppercase;
+				}
+			}
 		}
 
 		div {
@@ -36,24 +52,30 @@ body {
 			display: block;
 			text-align: center;
 		}
-		h2 {
+		h3 {
 			font-size: 15px;
 			font-weight: bold;
 		}
-		input {
+		.inputId {
 			text-align: center;
 			box-shadow: none;
+			border: none;
 			border-bottom: 2px solid #3f3f3f;
+			margin: 20px 0;
+			font-size: 15px;
+			transition: 0.5s;
 			&:focus {
+					outline: none;
 					box-shadow: none;
 					transition: 0.5s;
-					border-bottom: 2px solid #f09741;
+					border-bottom: 2px solid red;
 			}
 		}
 		button {
-			margin: 15px;
-			height: 60px;
-			font-size: 20px;
+			margin: 10px;
+	    width: 120px;
+	    height: 40px;
+	    font-size: 14px;
 		}
 		p {
 			text-align: left;

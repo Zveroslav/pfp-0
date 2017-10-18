@@ -17,13 +17,14 @@ class CoinyPay extends React.Component {
                 title: "CoinyPay"
             });
         });
-        Poster.interface.showApplicationIconAt({order: 'Оплатить через CoinyPay', functions: 'Статус заказов CoinyPay'});
+        Poster.interface.showApplicationIconAt({order: 'Оплатить через CoinyPay', functions: 'Таблица заказов CoinyPay'});
     }
 	  render () {
+        const order = this.state.modalData.order || null;
         return(
             <div id="CoinyPay">
               <img width="450px" src='https://static.tildacdn.com/tild6461-3431-4262-b134-656264333332/1_big.png' />
-              <Order modalData={this.state.modalData} />
+              <Order modalData={this.state.modalData} order = {order}/>
             </div>
         );
 	  }

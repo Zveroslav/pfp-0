@@ -8,12 +8,11 @@ import AnswerFromServer from './OrdersTable.js';
 
 class Order extends React.Component {
   render () {
-    const {modalData} = this.props;
+    const {modalData, order} = this.props;
     const ContentModal = this.routeDataInModal(modalData);
+    console.log("---- ----", order)
     return(
-      <div>
-        <ContentModal />
-      </div>
+        <ContentModal order={order} />
     )
   }
   routeDataInModal = modalData => {
@@ -26,9 +25,8 @@ class Order extends React.Component {
         break;
       default:
         return AnswerFromServer
-
     }
-    console.log('RouteDataInModal',modalData);
+    console.log('RouteDataInModal', modalData);
   }
 }
 
