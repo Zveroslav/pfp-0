@@ -10,8 +10,6 @@ export default (OriginalComponent) => class WrappedComponent extends React.Compo
         this.setState({
             isOpen: this.state.stageNumber + 1
         })
-        console.log( "---- ----", this.state.stageNumber);
-
     }
 
     render() {

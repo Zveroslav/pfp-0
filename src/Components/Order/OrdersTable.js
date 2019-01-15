@@ -1,36 +1,60 @@
 import React from 'react';
+import PostedOrdersTabe from './PostedOrdersTabe';
+import PaidOrdersTable from './PaidOrdersTable';
+import {checkStatus} from '../../utils'
+import {connect} from 'react-redux';
+import {paidOrder, deleteOrder, changeStatus, cancelBill} from '../../AC';
+
 
 class OrdersTable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { showCheck: true, showDelete: false, status: "" };
+  }
+
+
+  changeActiveTable = (tableName) => () => {
+    if(this.state[tableName] != true) {
+      this.setState({showCheck: !this.state.showCheck, showDelete: !this.state.showDelete})
+    }
+  }
+  activeTable = (activeTab) => {
+    if (activeTab) {
+      return 'active';
+    } else {
+      return 'passive';
+    }
+  }
+
+
+
   render () {
+    let {paidOrder, deleteOrder, changeStatus, cancelBill} = this.props;
     return(
       <div id="body">
-      <h3>Таблица Заказов</h3>
-      <table>
-        <tbody>
-          <tr>
-            <th>№</th>
-            <th>Время</th>
-            <th>Статус</th>
-            <th>Действие</th>
-          </tr>
-          <tr>
-            <td>007</td>
-            <td>00:00</td>
-            <td>Ожидает оплаты</td>
-            <td><button className="btn-green pay">Повторить</button></td>
-          </tr>
-          <tr>
-            <td>003</td>
-            <td>00:00</td>
-            <td>Оплачен</td>
-            <td><button className="btn-red pay">Отменить</button></td>
-          </tr>
-
-        </tbody>
-      </table>
+        <h3>Таблица Заказов</h3>
+        <div className="orders-table">
+          <div className="tableMenu">
+            <div onClick={this.changeActiveTable('showCheck')} className={this.activeTable(this.state.showCheck)}>Отправленные</div>
+            <div onClick={this.changeActiveTable('showDelete')} className={this.activeTable(this.state.showDelete)}>Оплаченные</div>
+          </div>
+          <PostedOrdersTabe show={this.state.showCheck} status={this.state.status}/>
+          <PaidOrdersTable show={this.state.showDelete}  />
+        </div>
       </div>
     )
   }
 }
 
-export default OrdersTable;
+
+
+
+const mapStateToProps = store => {
+  return {
+    tablePaidOrders: store.tablePaidOrders,
+    tableForCheck:   store.tableForCheck,
+    tableOrder:      store.tableOrder
+  }
+}
+
+export default connect(null, {cancelBill})(connect(mapStateToProps, {deleteOrder})(connect(null, {paidOrder})(OrdersTable)));

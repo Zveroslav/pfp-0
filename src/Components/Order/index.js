@@ -1,21 +1,32 @@
 import React from 'react';
 import OrdersTable from './OrdersTable.js';
 import InputCoinId from './InputCoinId.js';
+import WaiterNotFound from './WaiterNotFound.js';
 import AnswerFromServer from './OrdersTable.js';
+import {orderCollectionForCheck} from '../../utils.js';
 
 
 
 
 class Order extends React.Component {
+  constructor(props) {
+        super(props);
+  }
+
   render () {
-    const {modalData, order} = this.props;
-    const ContentModal = this.routeDataInModal(modalData);
-    console.log("---- ----", order)
+    var {modalData, order} = this.props;
+    var ContentModal;
+    if (modalData.otp) {
+      ContentModal =  WaiterNotFound;
+    } else {
+      ContentModal = this.routeDataInModal(modalData);
+    }
     return(
-        <ContentModal order={order} />
+          <ContentModal {...this.props} />
     )
   }
-  routeDataInModal = modalData => {
+
+  routeDataInModal = (modalData, order) => {
     switch (modalData.place) {
       case 'functions':
         return OrdersTable
@@ -24,11 +35,12 @@ class Order extends React.Component {
         return InputCoinId
         break;
       default:
-        return AnswerFromServer
+        return OrdersTable
     }
-    console.log('RouteDataInModal', modalData);
   }
 }
+
+
 
 
 export default Order;

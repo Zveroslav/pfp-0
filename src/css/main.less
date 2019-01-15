@@ -1,6 +1,7 @@
 body {
 	color: #222;
 	padding: 0;
+	background: #fff;
 
 
 	h1, {
@@ -11,10 +12,14 @@ body {
 	#CoinyPay {
 		body {
 			padding: 0;
+			background: #fff;
 		}
 
 		#info {
 			padding: 0px 20px ;
+		}
+		.verify-block {
+			width:80%;
 		}
 
 		#body {
@@ -22,15 +27,27 @@ body {
 			padding-top: 0;
 			font-weight: 400;
 			font-size: 13px;
+			background: #fff;
 
 			h3 {
 				font-weight: bold;
 				font-style: 15px;
 				margin-bottom: 15px
 			}
+			.ordersTable {
+				height: 260px;
+				display: block;
+				overflow: scroll;
+
+			}
+
+
 			table {
+				margin-top: 20px;
 				margin: 0 auto;
-				width: 95%;
+				width: 100%;
+				border: 2px solid #d1cac9;
+
 				tr {
 					border-bottom: 1px solid #f3f3f3
 				}
@@ -42,14 +59,51 @@ body {
 					color: #aea37c;
 					font-weight: bold;
 					text-transform: uppercase;
+					padding-top: 15px;
 				}
+			}
+			.orders-table {
+				.status-order {
+					color: #fff;
+			    border-top: 2px solid #d1cac9;
+			    text-transform: uppercase;
+			    background: #d1cac9;
+			    padding: 10px;
+			    text-align: center;
+				}
+				.tableMenu {
+					margin:  0;
+					border: 2px solid #d2cbca;
+					border-bottom: 1px solid #d2cbca;
+					div {
+						text-transform: uppercase;
+				    width: calc(50%);
+				    display: inline-block;
+				    padding: 20px 0px;
+				    background: #fff;
+				    margin: 0;
+				    cursor: pointer;
+
+						&:hover {
+							background: #fbfbfb;
+
+						}
+
+					}
+					.active {
+						background: #b2a780 !important;
+						color: #fff;
+						font-weight: bold;
+						border-bottom: 2px solid #b2a780;
+					}
+				}
+
 			}
 		}
 
 		div {
 			margin: 0 auto;
 			margin-bottom: 10px;
-			display: block;
 			text-align: center;
 		}
 		h3 {
@@ -78,12 +132,57 @@ body {
 	    font-size: 14px;
 		}
 		p {
-			text-align: left;
+			text-align: center;
 		}
 
 	}
 
 	#app-container {
 		text-align: center;
+
+
+		#progress-bar {
+			position:relative;
+		  width:0;
+		  height:20px;
+		  margin: 25px 0px 25px 80px;
+		  background:#2abe4d;
+		  border-radius:0.8em;
+		  animation: roll 5s linear infinite;
+		  box-shadow:
+		    inset 0 10px 10px rgba(255,255,255,0.2),
+		    inset 0 1px 0 rgba(255,255,255,0.3),
+		    inset 0 -5px 3px rgba(0,0,0,0.2),
+		    0 3px 2px rgba(0,0,0,0.3);
+		}
+
+		#progress-bar:after {
+		 	width:300px;
+			height:28px;
+		  background:#333;
+		  border-radius:1em;
+		  display:block;
+		  content:"";
+		  position:absolute;
+		  left:-5px;
+		  top:-5px;
+		  z-index:-1;
+		}
+
+		@-moz-keyframes roll {
+			0% { width:0; }
+		  100% { width:290px; }
+		}
+
+		@-webkit-keyframes roll {
+			0% { width:0; }
+		  100% { width:290px; }
+		}
+	}
+
+	.messege {
+		text-align: center;
+		margin: 10px auto;
+		font-size: 15px;
 	}
 }
