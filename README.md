@@ -1,4 +1,4 @@
-# Poster-POS-Plagin for CoinyPay (React-Blugin)
+# Poster-POS-Plugin for CoinyPay (React-Redux)
 
 1
 <kbd> npm install</kbd> 
