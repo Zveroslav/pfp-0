@@ -1,17 +1,16 @@
 {
-  "name": "poster-pos-platform-boilerplate",
+  "name": "poster-pos-plugin",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "dev": "webpack-dev-server",
-    "prod": "NODE_ENV=production deploy",
     "deploy": "node upload.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joinposter/Poster-POS-Platform-Boilerplate.git"
   },
-  "author": "",
+  "author": "Zveroslav",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/joinposter/Poster-POS-Platform-Boilerplate/issues"
