@@ -1,4 +1,4 @@
-# Poster-POS-Platfrom-Bolerplate
+# Poster-POS-Plagin for CoinyPay (React-Blugin)
 
 1
 <kbd> npm install</kbd> 
@@ -7,4 +7,4 @@
 <kbd> npm install webpack-dev-server -g</kbd> 
 
 3
-<kbd> webpack-dev-server</kbd>
+<kbd> npm run dev</kbd>
